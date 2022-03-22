@@ -19,9 +19,7 @@ class WebService {
                 print(error.localizedDescription)
                 completion(nil)
             } else if let jsonData = data {
-                
                 do {
-                
                     let articleList = try JSONDecoder().decode(ArticleList.self, from: jsonData)
                     completion(articleList.articles)
                     //print(articleList as Any)
@@ -39,32 +37,27 @@ class WebService {
                 } catch {
                     print("error: ", error)
                 }
-              
             }
             
         }.resume()
     }
     
+    var loaded = 0
     
-    
-    func fetchImageWith(_ urlString: String?) -> UIImage{
-        if let imageUrl = urlString {
-            if let url = URL(string: imageUrl) {
-                let data = try? Data(contentsOf: url)
-                return UIImage(data: data!)!
+    func fetchImageWith(_ urlString: String?) -> UIImage?{
+        loaded += 1
+       print(loaded)
+            if let imageUrl = urlString {
+                if let url = URL(string: imageUrl){
+                    do {
+                        let data = try Data(contentsOf: url)
+                        return UIImage(data: data)
+                    } catch {
+                        print ("failed to fetch image: \(urlString ?? "nil")")
+                    }
+                }
             }
-        }
-        return UIImage(imageLiteralResourceName: "newsImage")
+        return nil
     }
-        
-     
-        
-    
-    
-    
-    
-    
-    
-    
-    
+
 }

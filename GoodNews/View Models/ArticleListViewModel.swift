@@ -10,6 +10,22 @@ import Foundation
 
 class ArticleListViewModel: ObservableObject {
     
+    
+    var apiKey: String
+    var urlString: String
+    
+    var searchText = ""{
+        didSet {
+            print("\(searchText)")
+        }
+    }
+    
+    
+    init(apiKey:String){
+        self.apiKey = apiKey
+        urlString = "https://newsapi.org/v2/top-headlines?country=us&apiKey=\(apiKey)"
+    }
+    
     var date: String {
         get {
             let dateFormatter = DateFormatter()
@@ -18,18 +34,26 @@ class ArticleListViewModel: ObservableObject {
         }
     }
 
-    @Published var articles: [ArticleViewModel] = [ArticleViewModel]() // propertywrapper
-    let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=be11282fb592403d88875fe28d5f9afa")!
+   
+    @Published var articles: [ArticleViewModel] = [ArticleViewModel]() 
+  
+    // propertywrapper
+    
+
     
     func load() {
-        fetchArticles()
+   fetchArticles()
     }
     
     private func fetchArticles() {
-        WebService().getArticles(url: url) { articles in
+        print("here I go")
+        WebService().getArticles(url: URL(string: urlString)!) { articles in
+          
             if let articles = articles {
+               
                 DispatchQueue.main.async {
                     self.articles = articles.map(ArticleViewModel.init)
+                   print("done")
                 }
                 
             }
