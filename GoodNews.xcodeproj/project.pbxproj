@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,8 @@
 		546AB4AB27E6A66700FC4623 /* URLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546AB4AA27E6A66700FC4623 /* URLImageView.swift */; };
 		546AB4AD27E6A90100FC4623 /* UrlImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546AB4AC27E6A90100FC4623 /* UrlImageModel.swift */; };
 		548682F127E21FC300DF0585 /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548682F027E21FC300DF0585 /* ArticleListView.swift */; };
+		54F1B17C28002E8700E3D844 /* SwiftUIFlowLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 54F1B17B28002E8700E3D844 /* SwiftUIFlowLayout */; };
+		54F1B17E2800325300E3D844 /* + Extension AtrributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F1B17D2800325300E3D844 /* + Extension AtrributedString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		546AB4AA27E6A66700FC4623 /* URLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageView.swift; sourceTree = "<group>"; };
 		546AB4AC27E6A90100FC4623 /* UrlImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageModel.swift; sourceTree = "<group>"; };
 		548682F027E21FC300DF0585 /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
+		54F1B17D2800325300E3D844 /* + Extension AtrributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+ Extension AtrributedString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F1B17C28002E8700E3D844 /* SwiftUIFlowLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +185,7 @@
 		546AB4A527E6831D00FC4623 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				546AB4AA27E6A66700FC4623 /* URLImageView.swift */,
 				546AB4A627E6834700FC4623 /* ActivityIndicator.swift */,
 			);
 			path = Modifiers;
@@ -199,9 +204,9 @@
 			isa = PBXGroup;
 			children = (
 				545EEA8924BF73ED004F9FF6 /* ContentView.swift */,
-				546AB4AA27E6A66700FC4623 /* URLImageView.swift */,
 				548682F027E21FC300DF0585 /* ArticleListView.swift */,
 				546AB4A327E63F0D00FC4623 /* ArticleDetailView.swift */,
+				54F1B17D2800325300E3D844 /* + Extension AtrributedString.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +227,9 @@
 			dependencies = (
 			);
 			name = GoodNews;
+			packageProductDependencies = (
+				54F1B17B28002E8700E3D844 /* SwiftUIFlowLayout */,
+			);
 			productName = GoodNews;
 			productReference = 545EEA8224BF73ED004F9FF6 /* GoodNews.app */;
 			productType = "com.apple.product-type.application";
@@ -294,6 +302,9 @@
 				Base,
 			);
 			mainGroup = 545EEA7924BF73ED004F9FF6;
+			packageReferences = (
+				54F1B17A28002E8700E3D844 /* XCRemoteSwiftPackageReference "swiftui-flow-layout" */,
+			);
 			productRefGroup = 545EEA8324BF73ED004F9FF6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -343,6 +354,7 @@
 				545EEA8824BF73ED004F9FF6 /* SceneDelegate.swift in Sources */,
 				5427852F27E1DB8C0013EBA8 /* ArticleListViewModel.swift in Sources */,
 				548682F127E21FC300DF0585 /* ArticleListView.swift in Sources */,
+				54F1B17E2800325300E3D844 /* + Extension AtrributedString.swift in Sources */,
 				5427852D27E1D9230013EBA8 /* Article.swift in Sources */,
 				5427852827E1D1950013EBA8 /* WebServices.swift in Sources */,
 				546AB4A727E6834800FC4623 /* ActivityIndicator.swift in Sources */,
@@ -676,6 +688,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		54F1B17A28002E8700E3D844 /* XCRemoteSwiftPackageReference "swiftui-flow-layout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/globulus/swiftui-flow-layout";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		54F1B17B28002E8700E3D844 /* SwiftUIFlowLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54F1B17A28002E8700E3D844 /* XCRemoteSwiftPackageReference "swiftui-flow-layout" */;
+			productName = SwiftUIFlowLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 545EEA7A24BF73ED004F9FF6 /* Project object */;
 }

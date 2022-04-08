@@ -6,7 +6,6 @@
 //  Copyright © 2022 Zelo. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class ImageCache {

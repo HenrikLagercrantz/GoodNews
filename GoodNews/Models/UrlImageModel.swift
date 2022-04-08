@@ -40,13 +40,11 @@ class UrlImageModel: ObservableObject {
         return true
     }
     
-   
-    
+
     func loadImageFromUrl() {
         guard let urlString = urlString else {
             return
         }
-        
         let url = URL(string: urlString)!
         let task = URLSession.shared.dataTask(with: url, completionHandler: getImageFromResponse(data:response:error:))
         task.resume()

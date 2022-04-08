@@ -35,27 +35,20 @@ class ArticleListViewModel: ObservableObject {
     }
 
    
-    @Published var articles: [ArticleViewModel] = [ArticleViewModel]() 
-  
+    @Published var articles: [ArticleViewModel] = [ArticleViewModel]()
     // propertywrapper
     
 
-    
     func load() {
    fetchArticles()
     }
     
     private func fetchArticles() {
-        print("here I go")
         WebService().getArticles(url: URL(string: urlString)!) { articles in
-          
             if let articles = articles {
-               
                 DispatchQueue.main.async {
                     self.articles = articles.map(ArticleViewModel.init)
-                   print("done")
-                }
-                
+                } 
             }
         }
     }

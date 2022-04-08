@@ -14,8 +14,6 @@ struct ArticleViewModel {
     
     private let article: Article
  
- 
-    
     var title: String {
         return self.article.title ?? ""
     }
@@ -23,8 +21,7 @@ struct ArticleViewModel {
     var description: String {
         return self.article.description ?? ""
     }
-    
-    
+
     var author: String {
         return self.article.author ?? ""
     }
@@ -38,7 +35,10 @@ struct ArticleViewModel {
     }
 
     var content: String {
-        return self.article.content ?? ""
+        if let content = self.article.content{
+            return getRidOfEnd(text: content)
+        }
+        return ""
     }
     
     var id: String {
@@ -46,7 +46,7 @@ struct ArticleViewModel {
     }
 
     var name: String {
-        return self.article.source.name ?? ""
+        return self.article.source.name ?? "Source"
     }
     
     var newsImage: UIImage? {
@@ -57,38 +57,11 @@ struct ArticleViewModel {
         return UrlImageView(urlString: self.article.urlToImage)
     }
     
-    
-  //  var image: UIImage?
-    
-    
-//    mutating func fetchNewsImage(){
-//               if let image = WebService().fetchImageWith(url) {
-//                   self.image = image
-//           } else {
-//               self.image = nil
-//           }
-//   }
-    
+    func getRidOfEnd(text: String) -> String {
+        let index = text.firstIndex(of: "[") ?? text.endIndex
+        return String(text[..<index])
+    }
 
- 
-//    @ViewBuilder
-//    func fetchNewsImageView(image: UIImage?) -> some View {
-//
-//        guard image != nil else {
-//         Image(uiImage: image!)
-//                .resizable()
-//                .scaledToFit()
-//                .cornerRadius(8)
-//
-//
-//        }
-//        return Image("newsImage")
-//
-//                    }
-            
-
-
-   
 }
 
 extension ArticleViewModel {

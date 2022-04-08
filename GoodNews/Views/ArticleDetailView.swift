@@ -7,16 +7,16 @@
 //
 
 import SwiftUI
+import SwiftUIFlowLayout
 
 struct ArticleDetailView: View {
+   
     var article: ArticleViewModel
     
     var body: some View {
         ScrollView {
 
                     article.newsImageView
-            
-                   
 
                     VStack(alignment: .leading) {
                         Text(article.name)
@@ -47,12 +47,14 @@ struct ArticleDetailView: View {
                             .fontWeight(.bold)
                        // Divider()
                         Spacer()
-                        Text(article.content)
+ 
+                        Text( self.article.content)
                             .font(.body)
                         Spacer()
                         let urlToArticle = "\(article.url)"
-                        Text(.init(urlToArticle))
-                            .font(.custom("Arial",size: 13))
+  
+                        HyperlinkText(html: "<b>Read the whole article online at </b> <a href=\(urlToArticle)</a> \(article.name )")
+ 
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .padding(.top, 12)
@@ -68,7 +70,7 @@ struct ArticleDetailView: View {
 struct ArticleDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let url =  "https://www.chicagotribune.com/resizer/qzq_SHrmIMxPCY33VxXv49hl2SU=/1200x0/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/FW27RKMRGGM5GKWHYUSLYBQ7NE.jpg"
-        let source = Source(id: "id", name: "name")
+        let source = Source(id: "id", name: nil)
         
         
         let article = Article(title: "Title", description: "Description", urlToImage: url, author: "author", url: "url to article", publishedAt: "date", content: "content", source: source)

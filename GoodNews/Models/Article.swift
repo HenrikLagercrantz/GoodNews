@@ -24,10 +24,7 @@ struct Article: Decodable {
     let content: String?
     
     let source: Source
-    
-
-    
-    
+ 
 }
 
 struct Source: Decodable {

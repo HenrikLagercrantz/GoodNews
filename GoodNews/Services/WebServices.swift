@@ -22,7 +22,6 @@ class WebService {
                 do {
                     let articleList = try JSONDecoder().decode(ArticleList.self, from: jsonData)
                     completion(articleList.articles)
-                    //print(articleList as Any)
                 } catch DecodingError.dataCorrupted(let context) {
                     print(context)
                 } catch DecodingError.keyNotFound(let key, let context) {
@@ -41,23 +40,7 @@ class WebService {
             
         }.resume()
     }
+
     
-    var loaded = 0
-    
-    func fetchImageWith(_ urlString: String?) -> UIImage?{
-        loaded += 1
-       print(loaded)
-            if let imageUrl = urlString {
-                if let url = URL(string: imageUrl){
-                    do {
-                        let data = try Data(contentsOf: url)
-                        return UIImage(data: data)
-                    } catch {
-                        print ("failed to fetch image: \(urlString ?? "nil")")
-                    }
-                }
-            }
-        return nil
-    }
 
 }
